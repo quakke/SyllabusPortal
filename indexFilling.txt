@@ -3,7 +3,9 @@
 # В этом файле описаны действия, необходимые для заполнения индекса ElasticSearch
 
 1. Скачать ElasticSearch и запустить файл bin/elasticsearch.bat
-2. С помощью расширения Postman для Google Chrome заполнить индекс, используя следующий запрос:
+  https://www.elastic.co/downloads/elasticsearch - ссылка для скачивания ElasticSearch
+  
+2. С помощью расширения Postman для Google Chrome (или другого REST-клиента) заполнить индекс, используя следующий запрос:
 
   Тип-запроса: PUT
   Параметры:
@@ -24,5 +26,7 @@
 
 3. Скачать cURL, зайти в папку bin. Поместить в нее файл rpud.json. Далее, в папке bin открыть командную строку и ввести следующую команду:
 curl -XPUT localhost:9200/_bulk --data-binary @rpud.json
+
+  https://curl.haxx.se/download.html - ссылка для скачивания cURL
 
 После выполнения описанных выше действий, индекс ElasticSearch будет заполнен.
