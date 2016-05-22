@@ -1,0 +1,28 @@
+# SyllabusPortal
+
+# В этом файле описаны действия, необходимые для заполнения индекса ElasticSearch
+
+1. Скачать ElasticSearch и запустить файл bin/elasticsearch.bat
+2. С помощью расширения Postman для Google Chrome заполнить индекс, используя следующий запрос:
+
+  Тип-запроса: PUT
+  Параметры:
+  { 
+  "mappings" : { 
+    "rpud" : { 
+      "properties" : { 
+        "nameInEng" : {"type": "string", "index" : "not_analyzed" }, 
+        "number" : {"type": "integer", "index" : "not_analyzed"}, 
+        "requirements" : { "type" : "string", "index" : "not_analyzed" }, 
+        "assessment" : { "type" : "string", "index" : "not_analyzed" }, 
+        "resourses" : { "type" : "string" },
+        "description" : { "type" : "string" }
+      } 
+    } 
+  } 
+}
+
+3. Скачать cURL, зайти в папку bin. Поместить в нее файл rpud.json. Далее, в папке bin открыть командную строку и ввести следующую команду:
+curl -XPUT localhost:9200/_bulk --data-binary @rpud.json
+
+После выполнения описанных выше действий, индекс ElasticSearch будет заполнен.
